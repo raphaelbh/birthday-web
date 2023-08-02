@@ -17,7 +17,6 @@ function addItem(position, name, score) {
     tbody.innerHTML += row;
 }
 
-
 fetch("https://birthday-api-y1wf.onrender.com/rank")
   .then(response => {
     if (!response.ok) {
