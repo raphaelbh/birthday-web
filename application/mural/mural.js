@@ -75,5 +75,5 @@ function _send() {
 }
 
 function _success() {
-    document.getElementById('message').value = ""
+    window.location.href = 'index.html';
 }
