@@ -64,7 +64,7 @@ function _send() {
 function _getAnswers() {
     const answers = {};
     for (let i = 0; i < data.length; i++) {
-        answers[i] = _getValue('input[name="question' + i + '"]');
+        answers[i+1] = _getValue('input[name="question' + i + '"]');
     }
 
     return answers;
