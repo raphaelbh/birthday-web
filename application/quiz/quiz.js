@@ -71,25 +71,25 @@ function _getAnswers() {
 }
 
 function _sendAnswers(answers) {
+
+    const headers = new Headers();
+    headers.append("x-user", localStorage.getItem('user'));
+    headers.append("Content-Type", "application/json");
+
     fetch("https://birthday-api-y1wf.onrender.com/quiz", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: headers,
         body: JSON.stringify(answers)
-        })
-        .then(response => {
-            if (!response.ok) {
-            throw new Error(`Erro na requisição: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            _success()
-        })
-        .catch(error => {
-            console.error("Erro:", error);
-        });
+    }).then(response => {
+        if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        return response.json();
+    }).then(data => {
+        _success()
+    }).catch(error => {
+        console.error("Erro:", error);
+    });
 }
 
 function _success() {
