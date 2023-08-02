@@ -1,21 +1,98 @@
-const quizSent = localStorage.getItem('quiz_sent');
-if (quizSent) {
-    window.location.href = 'index.html';
-}
+const data = [
+    {
+        "code": "1",
+        "description": "Quantos irmãos você tem?",
+        "options": [
+            {
+                "code": "1",
+                "description": "1"
+            },
+            {
+                "code": "2",
+                "description": "2"
+            },
+            {
+                "code": "3",
+                "description": "3"
+            }
+        ]
+    },
+    {
+        "code": "2",
+        "description": "Quantos estados brasileiros eu conheço?",
+        "options": [
+            {
+                "code": "1",
+                "description": "3"
+            },
+            {
+                "code": "2",
+                "description": "6"
+            },
+            {
+                "code": "3",
+                "description": "9"
+            }
+        ]
+    }
+]
 
-const sendButton = document.getElementById('send');
-sendButton.onclick = send;
+main();
 
-function send() {
-    const totalQuestions = 2;
-    const questions = {};
-    for (let i = 0; i < totalQuestions; i++) {
-        questions[i] = getValue('input[name="question' + i + '"]');
+function main() {
+
+    // bypass if quiz sent
+    const quizSent = localStorage.getItem('quiz_sent');
+    if (quizSent) {
+        window.location.href = 'index.html';
     }
 
-    // send answers
-    console.log(questions);
+    // load questions
+    _loadQuestions();
 
+    // events
+    const sendButton = document.getElementById('send');
+    sendButton.onclick = _send;
+
+}
+
+function _send() {
+    const answers = _getAnswers();
+    _sendAnswers(answers)
+}
+
+function _getAnswers() {
+    const answers = {};
+    for (let i = 0; i < data.length; i++) {
+        answers[i] = _getValue('input[name="question' + i + '"]');
+    }
+
+    return answers;
+}
+
+function _sendAnswers(answers) {
+    fetch("https://birthday-api-y1wf.onrender.com/quiz", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(answers)
+        })
+        .then(response => {
+            if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            _success()
+        })
+        .catch(error => {
+            console.error("Erro:", error);
+        });
+}
+
+function _success() {
     // set send flag
     localStorage.setItem('quiz_sent', true);
 
@@ -28,8 +105,7 @@ function send() {
     quizMessage.style.display = 'block';
 }
 
-
-function getValue(selector) {
+function _getValue(selector) {
     const options = document.querySelectorAll(selector);
     let selected = null;
     for (let option of options) {
@@ -41,9 +117,11 @@ function getValue(selector) {
     return selected;
 }
 
-const questionsSection = document.getElementById("questions");
 
-function addQuestion(index, question) {
+
+function _addQuestion(index, question) {
+
+    const questions = document.getElementById("questions");
 
     let optionsContent = ""
     for (let i = 0; i < question.options.length; i++) {
@@ -62,21 +140,26 @@ function addQuestion(index, question) {
             </div>
         </div>
     `;
-    questionsSection.innerHTML += questionContent;
+    questions.innerHTML += questionContent;
 }
 
-fetch("https://birthday-api-y1wf.onrender.com/questions")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-    return response.json(); 
-  })
-  .then(data => {
-    for (let i = 0; i < data.length; i++) {
-        addQuestion(i, data[i]);
-    }
-  })
-  .catch(error => {
-    console.error("Erro:", error);
-  });
+function _loadQuestions() {
+
+    /*fetch("https://birthday-api-y1wf.onrender.com/questions")
+    .then(response => {
+        if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        return response.json(); 
+    })
+    .then(data => {*/
+        for (let i = 0; i < data.length; i++) {
+            _addQuestion(i, data[i]);
+        }
+    /*})
+    .catch(error => {
+        console.error("Erro:", error);
+    });*/
+}
+
+
