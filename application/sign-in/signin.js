@@ -13,51 +13,20 @@ signInButton.onclick = signIn;
 
 function signIn() {
 
-    if (!validForm()) {
+    if (!_validForm()) {
         _errorFields();
         return;
     }
-
     
-    // --- authenticate
-    /*const body = {
-        username: document.getElementById('user').value,
-        password: document.getElementById('pass').value
-    };
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    };
-
-    fetch('https://exemplo-api-rest.com/auth', options)
-    .then(response => {
-
-        console.log("response", response)
-
-        if (!response.ok) {
-            throw new Error('Erro na chamada da API: ' + response.status);
-        }
-        return response.json();
-
-    })
-    .then(data => {
-        console.log('Resposta da API POST:', data);
-        _success();
-    })
-    .catch(error => {
-        console.error(error.message);
-        _error();
-    });*/
-    
+    if (!_validAuth()) {
+        _errorAuth();
+        return
+    }
     
     _success()
 }
 
-function validForm() {
+function _validForm() {
     const user = document.getElementById('user').value
     const pass = document.getElementById('pass').value
     const name = document.getElementById('name').value
@@ -68,6 +37,15 @@ function validForm() {
         return true;
     }
     return false;
+}
+
+function _validAuth() {
+    const user = document.getElementById('user').value
+    const pass = document.getElementById('pass').value
+    if (user == "jack" && pass == "2023") {
+        return true
+    }
+    return false
 }
 
 function _success() {
