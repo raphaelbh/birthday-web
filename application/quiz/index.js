@@ -27,7 +27,7 @@ fetch("https://birthday-api-y1wf.onrender.com/rank")
   })
   .then(data => {
     //console.log(data);
-    for (let i = 0; i < data.size(); i++) {
+    for (let i = 0; i < data.length; i++) {
         addItem(data[i].position, data[i].user, data[i].score)
     }
   })
