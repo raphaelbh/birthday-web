@@ -25,8 +25,8 @@ function _loadMessages(messages) {
 
     const col1 = document.getElementById('col1');
     const col2 = document.getElementById('col2');
-
-    for (let i = 0; i < messages.length; i++) {
+    
+    for (let i = messages.length; i >= 0; i--) {
 
         const message = messages[i];
         const messageContent = `
