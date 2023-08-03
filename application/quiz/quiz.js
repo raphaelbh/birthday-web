@@ -35,7 +35,7 @@ const data = [
             }
         ]
     }
-]
+];
 
 main();
 
@@ -102,13 +102,8 @@ function _success() {
     // set send flag
     localStorage.setItem('quiz_sent', true);
 
-    // hide questions section
-    const questionsSection = document.getElementById('questions-section');
-    questionsSection.style.display = 'none';
-
-    // show message
-    const quizMessage = document.getElementById('quiz-message');
-    quizMessage.style.display = 'block';
+    // redirect
+    window.location.href = 'index.html';
 }
 
 function _getValue(selector) {
@@ -122,8 +117,6 @@ function _getValue(selector) {
     }
     return selected;
 }
-
-
 
 function _addQuestion(index, question) {
 
@@ -167,5 +160,3 @@ function _loadQuestions() {
         console.error("Erro:", error);
     });*/
 }
-
-
