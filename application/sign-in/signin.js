@@ -1,3 +1,6 @@
+// theme
+localStorage.removeItem("theme");
+
 // home redirect
 const localDataName = getLocalDataName();
 if (localDataName) {
