@@ -1,6 +1,3 @@
-// theme
-localStorage.setItem('theme', 'dark');
-
 // home redirect
 const localDataName = getLocalDataName();
 if (localDataName) {

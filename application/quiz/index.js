@@ -17,19 +17,16 @@ function addItem(position, name, score) {
     tbody.innerHTML += row;
 }
 
-fetch("https://birthday-api-y1wf.onrender.com/rank")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-    return response.json(); 
-  })
-  .then(data => {
-    //console.log(data);
-    for (let i = 0; i < data.length; i++) {
-        addItem(data[i].position, data[i].user, data[i].score)
-    }
-  })
-  .catch(error => {
-    console.error("Erro:", error);
-  });
+const url = "https://birthday-api-y1wf.onrender.com/rank";
+fetch(url).then(response => {
+  if (!response.ok) {
+    throw new Error(`Erro na requisição: ${response.status}`);
+  }
+  return response.json(); 
+}).then(data => {
+  for (let i = 0; i < data.length; i++) {
+      addItem(data[i].position, data[i].user, data[i].score)
+  }
+}).catch(error => {
+  console.error("Erro:", error);
+});

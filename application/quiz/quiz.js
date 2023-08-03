@@ -54,6 +54,12 @@ function main() {
     const sendButton = document.getElementById('send');
     sendButton.onclick = _send;
 
+    const backIndexButton = document.getElementById('back-quiz-index')
+    backIndexButton.onclick = _backIndex
+}
+
+function _backIndex() {
+    window.location.href = 'index.html';
 }
 
 function _send() {
@@ -133,9 +139,9 @@ function _addQuestion(index, question) {
     }
 
     const questionContent = `
-        <div style="font-weight: bold; font-size: 20px;">${question.description}</div>
-        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5">
-            <div class="list-group list-group-checkable d-grid gap-2 border-0">
+        <div style="font-weight: bold; color: antiquewhite !important;">${question.description}</div>
+        <div class="p-4">
+            <div class="list-group list-group-checkable gap-2 border-0 text-center" style="max-width: none; width: auto;">
             ${optionsContent}
             </div>
         </div>

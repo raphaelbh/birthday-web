@@ -18,7 +18,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body style="background-image: url('../assets/background.jpg');">
    
 
 
@@ -27,20 +27,20 @@
 
 
 
-    <!--breadcrumb: start-->
-    <div class="container my-5">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
-          <li class="breadcrumb-item">
-            <a class="link-body-emphasis fw-semibold text-decoration-none" href="../home/index.html">Home</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Mural
-          </li>
-        </ol>
-      </nav>
+    <!-- header: start -->
+    <div class="container">
+      <header class="d-flex flex-wrap py-3 mb-4">
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary" id="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
     </div>
-    <!--breadcrumb: end -->
+    <!-- header: end -->
+    
 
 
     <!--content: start-->
@@ -49,27 +49,23 @@
 
 
       <!-- form -->
+      <div class="pb-2" style="color: antiquewhite !important;"><strong>Deixe aqui seu recadinho pra mim <3</strong></div>
       <div class="input-group">
-        <span class="input-group-text">Deixe sua mensagem aqui</span>
-        <textarea id="message" class="form-control" aria-label="With textarea"></textarea>
+        <textarea id="message" class="form-control" aria-label="With textarea" style="min-height: 100px;"></textarea>
       </div>
-
-      <div class="mt-2" style="text-align: right;">
-        <button type="button" class="btn btn-outline-primary" id="send-message">
-          Enviar
-        </button>
-      </div>
+      <br />
+      <button type="button" class="btn btn-primary" id="send-message">
+        Enviar
+      </button>
       <br />
       <!-- form -->
 
       <!--- messages: start-->
-      <div class="row mb-3 text-center">
-        <div id="col1" class="col-6 themed-grid-col"></div>
-        <div id="col2" class="col-6 themed-grid-col"></div>
-      </div>
-
+      <br />
+      <div id="mural" class="row"></div>
       <!-- messages: end -->
 
+      
 
     </div>
     <!--content: end-->

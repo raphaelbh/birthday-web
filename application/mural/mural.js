@@ -10,7 +10,6 @@ function main() {
         }
         return response.json(); 
     }).then(data => {
-        //console.log(data);
         _loadMessages(data);
     }).catch(error => {
         console.error("Erro:", error);
@@ -23,27 +22,22 @@ function main() {
 
 function _loadMessages(messages) {
 
-    const col1 = document.getElementById('col1');
-    const col2 = document.getElementById('col2');
-    
-    for (let i = messages.length; i >= 0; i--) {
+    const mural = document.getElementById('mural');    
+    for (let i = messages.length-1; i >= 0; i--) {
 
         const message = messages[i];
         const messageContent = `
-            <div class="card p-3">
-                <figure class="p-3 mb-0">
-                    <blockquote class="blockquote">
-                    <p>${message.message}</p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer mb-0 text-body-secondary">
-                        ${message.user}
-                    </figcaption>
-                </figure>
-            </div><br />
+            <div class="mb-4">
+                <div class="card text-center">
+                <div class="card-body">
+                    <p class="card-text" style="text-align: left;">${message.message}</p>
+                    <p class="card-text" style="text-align: right;"><small class="text-body-secondary">${message.user}</small></p>
+                </div>
+                </div>
+            </div>
         `
 
-        if (i % 2 === 0) col1.innerHTML += messageContent;
-        else col2.innerHTML += messageContent;
+        mural.innerHTML += messageContent;
     }
     
 }
