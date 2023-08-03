@@ -31,7 +31,7 @@ function _loadMessages(messages) {
                 <div class="card text-center" style="background-color: white;">
                 <div class="card-body">
                     <p class="card-text" style="text-align: left; color: darkslategray;">${message.message}</p>
-                    <p class="card-text" style="text-align: right; color: gray;"><small class="text-body-secondary">${message.user}</small></p>
+                    <p class="card-text" style="text-align: right;"><small class="text-body-secondary" style="color: gray !important;">${message.user}</small></p>
                 </div>
                 </div>
             </div>
