@@ -1,0 +1,2 @@
+// theme
+localStorage.removeItem("theme");
