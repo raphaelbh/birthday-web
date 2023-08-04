@@ -71,12 +71,12 @@ function _showError(message) {
 
 const photosSection = document.getElementById("photos-section");
 
-function _addItem(image) {
+function _addItem(photo) {
 
     const item = `
         <div class="col">
             <div class="card shadow-sm">
-            <img src="https://bailedajack.s3.us-east-2.amazonaws.com/${image}" />
+            <img src="https://bailedajack.s3.us-east-2.amazonaws.com/${photo.image}" />
             </div>
         </div>
     `;
