@@ -1,37 +1,181 @@
 const data = [
     {
         "code": "1",
-        "description": "Quantos irmãos você tem?",
+        "description": "Qual é o meu sabor de sorvete favorito?",
         "options": [
             {
                 "code": "1",
-                "description": "1"
+                "description": "Unicórnio"
             },
             {
                 "code": "2",
-                "description": "2"
+                "description": "Menta com chocolate"
             },
             {
                 "code": "3",
-                "description": "3"
+                "description": "Pistache"
             }
         ]
     },
     {
         "code": "2",
-        "description": "Quantos estados brasileiros eu conheço?",
+        "description": "Qual é o meu filme preferido de todos os tempos?",
         "options": [
             {
                 "code": "1",
-                "description": "3"
+                "description": "Casa comigo"
             },
             {
                 "code": "2",
-                "description": "6"
+                "description": "Melhor amigo da noiva"
             },
             {
                 "code": "3",
-                "description": "9"
+                "description": "Uma linda mulher"
+            }
+        ]
+    },
+    {
+        "code": "3",
+        "description": "Qual é o meu destino dos seus sonhos para viajar?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Austrália"
+            },
+            {
+                "code": "2",
+                "description": "Tailândia"
+            },
+            {
+                "code": "3",
+                "description": "Filipinas"
+            }
+        ]
+    },
+    {
+        "code": "4",
+        "description": "Qual é o meu prato de comida preferido?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Strogonoff"
+            },
+            {
+                "code": "2",
+                "description": "Macarrão"
+            },
+            {
+                "code": "3",
+                "description": "Feijoada"
+            }
+        ]
+    },
+    {
+        "code": "5",
+        "description": "Qual é o meu jogo de tabuleiro ou vídeo game preferido?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Need for speed "
+            },
+            {
+                "code": "2",
+                "description": "Counter strike"
+            },
+            {
+                "code": "3",
+                "description": "Super Mario"
+            }
+        ]
+    },
+    {
+        "code": "6",
+        "description": "Qual o estilo de filme que mais odeio?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Suspense"
+            },
+            {
+                "code": "2",
+                "description": "Terror"
+            },
+            {
+                "code": "3",
+                "description": "Drama"
+            }
+        ]
+    },
+    {
+        "code": "7",
+        "description": "Quantos irmão tenho?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Um"
+            },
+            {
+                "code": "2",
+                "description": "Dois"
+            },
+            {
+                "code": "3",
+                "description": "Três"
+            }
+        ]
+    },
+    {
+        "code": "8",
+        "description": "Qual lugar eu sonho morar?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Jericoacoara"
+            },
+            {
+                "code": "2",
+                "description": "São Miguel dos milagres"
+            },
+            {
+                "code": "3",
+                "description": "Maragogi"
+            }
+        ]
+    },
+    {
+        "code": "9",
+        "description": "Em quantas cidades já morei?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Duas"
+            },
+            {
+                "code": "2",
+                "description": "Três"
+            },
+            {
+                "code": "3",
+                "description": "Quatro"
+            }
+        ]
+    },
+    {
+        "code": "10",
+        "description": "Qual minha cor favorita?",
+        "options": [
+            {
+                "code": "1",
+                "description": "Azul"
+            },
+            {
+                "code": "2",
+                "description": "Vermelho"
+            },
+            {
+                "code": "3",
+                "description": "Amarelo"
             }
         ]
     }
