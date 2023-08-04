@@ -13,7 +13,7 @@ const table = document.getElementById("rank-table");
 const tbody = table.querySelector("tbody");
 
 function addItem(position, name, score) {
-    const row = `<tr><th scope="row">${position}</th><td>${name}</td><td>${score}</td></tr>`;
+    const row = `<tr><th scope="row">${position}</th><td>${name}</td><td style="text-align: center;">${score}</td></tr>`;
     tbody.innerHTML += row;
 }
 
