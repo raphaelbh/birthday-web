@@ -1,32 +1,54 @@
-const quizButton = document.getElementById('quiz-button');
+main();
 
-quizButton.onclick = function quiz() {
-    window.location.href = 'quiz.html';
-}
+function main() {
 
-const quizSent = localStorage.getItem('quiz_sent');
-if (quizSent) {
-    quizButton.style.display = 'none';
-}
+  const table = document.getElementById("rank-table");
+  table.style.display = "none";
 
-const table = document.getElementById("rank-table");
-const tbody = table.querySelector("tbody");
+  // load rank
+  const url = "https://birthday-api-y1wf.onrender.com/rank";
+  fetch(url).then(response => {
+    if (!response.ok) {
+      throw new Error(`Erro na requisição: ${response.status}`);
+    }
+    return response.json(); 
+  }).then(data => {
+      _loadItems(data);
+  }).catch(error => {
+    console.error("Erro:", error);
+  });
 
-function addItem(position, name, score) {
-    const row = `<tr><th scope="row">${position}</th><td>${name}</td><td style="text-align: center;">${score}</td></tr>`;
-    tbody.innerHTML += row;
-}
-
-const url = "https://birthday-api-y1wf.onrender.com/rank";
-fetch(url).then(response => {
-  if (!response.ok) {
-    throw new Error(`Erro na requisição: ${response.status}`);
+  // block if sent
+  const quizSent = localStorage.getItem('quiz_sent');
+  if (quizSent) {
+      quizButton.style.display = 'none';
   }
-  return response.json(); 
-}).then(data => {
+
+  // events
+  const quizButton = document.getElementById('quiz-button');
+  quizButton.onclick = function quiz() {
+      window.location.href = 'quiz.html';
+  }
+
+}
+
+function _loadItems(data) {
+
+  const spinner = document.getElementById("spinner");
+  const table = document.getElementById("rank-table");
+  const tbody = table.querySelector("tbody");
+
   for (let i = 0; i < data.length; i++) {
-      addItem(data[i].position, data[i].user, data[i].score)
+      const item = data[i];
+      const row = `
+        <tr>
+          <th scope="row">${item.position}</th>
+          <td>${item.name}</td>
+          <td style="text-align: center;">${item.score}</td>
+        </tr>`;
+      tbody.innerHTML += row;
   }
-}).catch(error => {
-  console.error("Erro:", error);
-});
+
+  spinner.style.display = "none";
+  table.style.display = "block";
+}
