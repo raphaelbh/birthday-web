@@ -18,18 +18,18 @@ function main() {
     console.error("Erro:", error);
   });
 
-  // block if sent
-  const quizSent = localStorage.getItem('quiz_sent');
-  if (quizSent) {
-      quizButton.style.display = 'none';
-  }
-
   // events
   const quizButton = document.getElementById('quiz-button');
   quizButton.onclick = function quiz() {
       window.location.href = 'quiz.html';
   }
 
+  // block if sent
+  const quizSent = localStorage.getItem('quiz_sent');
+  if (quizSent) {
+      quizButton.style.display = 'none';
+  }
+  
 }
 
 function _loadItems(data) {
