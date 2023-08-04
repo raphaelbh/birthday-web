@@ -27,7 +27,7 @@ function _loadMessages(messages) {
 
         const message = messages[i];
         const messageContent = `
-            <div class="col" style="width: 50%;">
+            <div class="col"">
               <div class="card shadow-sm">
                   <div class="card text-center" style="background-color: white;">
                   <div class="card-body">
