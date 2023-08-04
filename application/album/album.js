@@ -2,6 +2,9 @@
 localStorage.removeItem("theme");
 
 
+const spinner = document.getElementById('spinner');
+
+
 const imagesInput = document.getElementById('images-input');
 const uploadButton = document.getElementById('upload-button');
 
@@ -31,12 +34,15 @@ uploadButton.addEventListener('click', async () => {
     }
 
     try {
+        spinner.style.display = 'block';
+
         const url = "https://birthday-api-y1wf.onrender.com/photos";
         const response = await fetch(url, {
             method: 'POST',
             body: formData,
         });
 
+        spinner.style.display = 'none';
         if (response.ok) {
             window.location.href = 'index.html';
         } else {
@@ -53,6 +59,8 @@ uploadButton.addEventListener('click', async () => {
 
 
 function _showError(message) {
+    spinner.style.display = 'none';
+    
     const errorMessage = document.getElementById('error-message');
     errorMessage.innerHTML = message;
 
