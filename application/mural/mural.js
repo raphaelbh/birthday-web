@@ -22,24 +22,24 @@ function main() {
 
 function _loadMessages(messages) {
 
-    const mural = document.getElementById('mural');    
+    const mural = document.getElementById('messages-section');    
     for (let i = messages.length-1; i >= 0; i--) {
 
         const message = messages[i];
         const messageContent = `
-            <div class="mb-4">
-                <div class="card text-center" style="background-color: white;">
-                <div class="card-body">
-                    <p class="card-text" style="text-align: left; color: darkslategray;">${message.message}</p>
-                    <p class="card-text" style="text-align: right;"><small class="text-body-secondary" style="color: gray !important;">${message.user}</small></p>
-                </div>
-                </div>
+            <div class="col" style="width: 50%;">
+              <div class="card shadow-sm">
+                  <div class="card text-center" style="background-color: white;">
+                  <div class="card-body">
+                      <p class="card-text" style="text-align: left; color: darkslategray;">${message.message}</p>
+                      <p class="card-text" style="text-align: right;"><small class="text-body-secondary" style="color: gray !important;">${message.user}</small></p>
+                  </div>
+                  </div>
+              </div>
             </div>
-        `
-
+        `;
         mural.innerHTML += messageContent;
     }
-    
 }
 
 function _send() {
