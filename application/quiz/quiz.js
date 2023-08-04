@@ -222,6 +222,9 @@ function _getAnswers() {
 
 function _sendAnswers(answers) {
 
+    const sendButton = document.getElementById('send');
+    sendButton.style.display = 'none';
+
     const headers = new Headers();
     headers.append("x-user", localStorage.getItem('name'));
     headers.append("Content-Type", "application/json");
