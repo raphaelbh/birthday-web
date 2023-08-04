@@ -36,9 +36,14 @@ uploadButton.addEventListener('click', async () => {
     try {
         spinner.style.display = 'block';
 
+        const headers = new Headers();
+        headers.append("x-user", localStorage.getItem('name'));
+        headers.append("Content-Type", "application/json");
+
         const url = "https://birthday-api-y1wf.onrender.com/photos";
         const response = await fetch(url, {
             method: 'POST',
+            headers: headers,
             body: formData,
         });
 
