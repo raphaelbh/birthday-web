@@ -24,6 +24,7 @@ uploadButton.addEventListener('click', async () => {
         if (response.ok) {
             //statusMessage.textContent = 'Imagens enviadas com sucesso!';
             //statusMessage.style.color = 'green';
+            window.location.href = 'index.html';
         } else {
             //statusMessage.textContent = 'Erro ao enviar imagens.';
             //statusMessage.style.color = 'red';
