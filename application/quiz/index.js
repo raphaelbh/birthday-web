@@ -43,7 +43,7 @@ function _loadItems(data) {
       const row = `
         <tr>
           <th scope="row">${item.position}</th>
-          <td>${item.name}</td>
+          <td>${item.user}</td>
           <td style="text-align: center;">${item.score}</td>
         </tr>`;
       tbody.innerHTML += row;
