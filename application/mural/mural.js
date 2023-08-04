@@ -2,6 +2,16 @@ main();
 
 function main() {
 
+    const mural = document.getElementById('messages-section');
+    mural.innerHTML = `
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    `;
+
+
     // load messages
     fetch("https://birthday-api-y1wf.onrender.com/messages")
     .then(response => {
@@ -22,7 +32,9 @@ function main() {
 
 function _loadMessages(messages) {
 
-    const mural = document.getElementById('messages-section');    
+    const mural = document.getElementById('messages-section');
+    mural.innerHTML = "";
+
     for (let i = messages.length-1; i >= 0; i--) {
 
         const message = messages[i];
