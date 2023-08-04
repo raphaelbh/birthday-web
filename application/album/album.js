@@ -81,6 +81,11 @@ function _addItem(photo) {
         <div class="col">
             <div class="card shadow-sm">
             <img src="https://bailedajack.s3.us-east-2.amazonaws.com/${photo.image}" />
+            <div class="card-body" style="padding: 2%;">
+              <div class="" style="text-align: right;">
+                <small class="text-body-secondary">${photo.user}</small>
+              </div>
+            </div>
             </div>
         </div>
     `;
@@ -101,7 +106,6 @@ fetch(url).then(response => {
 }).catch(error => {
     console.error("Erro:", error);
 });
-
 
 async function _isFileAnImage(file) {
     return new Promise((resolve) => {
