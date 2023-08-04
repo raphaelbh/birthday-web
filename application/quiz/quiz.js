@@ -271,7 +271,7 @@ function _addQuestion(index, question) {
         const option = question.options[i]
         optionsContent += `
         <input class="list-group-item-check pe-none" type="radio" name="question${index}" id="question${index}Radios${option.code}" value="${option.code}">
-        <label class="list-group-item rounded-3 py-3 text-center" style="background-color:white;" for="question${index}Radios${option.code}">${option.description}</label>
+        <label class="list-group-item rounded-3 py-3 text-center" style="background-color:white; color: black;" for="question${index}Radios${option.code}">${option.description}</label>
         `
     }
 
