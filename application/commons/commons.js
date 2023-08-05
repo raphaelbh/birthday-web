@@ -1,9 +1,9 @@
 // theme
 localStorage.removeItem("theme");
 
-const backHomeButton = document.getElementById('back-home')
-backHomeButton.onclick = backHome
+const backHomeButton = document.getElementById('back-home');
+if (backHomeButton) backHomeButton.onclick = _backHome
 
-function backHome() {
+function _backHome() {
     window.location.href = '../home/index.html';
 }

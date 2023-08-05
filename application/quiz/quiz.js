@@ -226,7 +226,7 @@ function _sendAnswers(answers) {
     sendButton.style.display = 'none';
 
     const headers = new Headers();
-    headers.append("x-user", localStorage.getItem('name'));
+    headers.append("x-user", encodeURIComponent(localStorage.getItem('name')));
     headers.append("Content-Type", "application/json");
 
     fetch("https://birthday-api-y1wf.onrender.com/quiz", {
